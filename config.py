@@ -15,6 +15,7 @@ DATABASSE_PASSWORD = ''
 
 PORT = '3360'
 QUERRY_CHECK_LOGIN_STATUS = "SELECT IP, status FROM login WHERE ID=%s"
+QUERRY_SIGNUP = "INSERT INTO login (username, password, status, IP) VALUES(%s,%s,%s,%s)"
 QUERRY_ISUSERNAME_VALID = "SELECT username FROM login WHERE username=%s"
 QUERRY_LOGIN = "SELECT ID, username, password FROM login WHERE username=%s AND password= %s"
 QUERRY_SET_LOGIN_STATUS = "UPDATE login SET IP=%s, status=%s WHERE ID=%s"

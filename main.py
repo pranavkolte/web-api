@@ -1,6 +1,6 @@
 from flask import Flask, request
 import json
-from userAuth import login, logout, user
+from userAuth import login, logout, user, signup
 app = Flask(__name__)
 
 
@@ -35,6 +35,18 @@ def api_loggedin():
     userID = request.form.get('userID', default_value)
     userIP = request.form.get('userIP')
     response = user.isLoggedIn(userID, userIP)
+    return json.dumps({'response': response})
+
+
+@app.route('/userAuth/user/signup', methods=['GET'])
+def api_signup():
+    default_value = 'None'
+    username = request.form.get('username', default_value)
+    password = request.form.get('password')
+    userIP = request.form.get('userIP')
+
+    response = signup.signup(username, password, userIP)
+
     return json.dumps({'response': response})
 
 
