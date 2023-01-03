@@ -1,9 +1,9 @@
 # web-api
 
-##Built API which can be used to build Hospital related Mobile App, Websites
+## Built API which can be used to build Hospital related Mobile App, Websites
 
 
-##basic functionality :
+## Basic functionality :
 ## -log in
 ## -logout
 ## -check if username is valid
