@@ -3,7 +3,7 @@
 ### Built API which can be used to build Hospital related Mobile App, Websites
 
 
-##Functionality :
+## Functionality :
 **log in**<br> 
 **logout**<br> 
 **check if username is valid**<br> 
