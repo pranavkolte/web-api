@@ -2,17 +2,12 @@ import config
 import hashlib
 
 
-def getSHA(password):
-    SHA_password = hashlib.sha256(password.encode('utf-8')).hexdigest().upper()
-    return SHA_password
-
-
 def signup(username, password, IP):
     try:
         database = config.get_database()
         cursor = database.cursor()
         cursor.execute(config.QUERRY_SIGNUP,
-                       (username, getSHA(password), "ON", IP))
+                       (username, config.getSHA(password), "ON", IP))
         database.commit()
         return True
     except:

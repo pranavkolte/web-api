@@ -1,6 +1,6 @@
 from flask import Flask, request
 import json
-from userAuth import login, logout, user, signup
+from userAuth import login, logout, user, signup, reset_password
 app = Flask(__name__)
 
 
@@ -48,6 +48,25 @@ def api_signup():
     response = signup.signup(username, password, userIP)
 
     return json.dumps({'response': response})
+
+
+@app.route('/userAuth/user/resetPassword', methods=['GET'])
+def api_resetPassword():
+    default_value = 'None'
+    username = request.form.get('username', default_value)
+    oldpassword = request.form.get('oldpassword', default_value)
+    newpassword = request.form.get('newpassword')
+
+    if not reset_password.checkUserID(username):
+        return json.dumps({'response': 'USER_NOT_FOUND'})
+
+    if not reset_password.checkPassword(username, oldpassword):
+        return json.dumps({'response': 'WRONG_PASSWORD'})
+
+    if reset_password.resetPassword(username, newpassword):
+        return json.dumps({'response': 'SUCCESS'})
+
+    return json.dumps({'response': False})
 
 
 if __name__ == '__main__':
