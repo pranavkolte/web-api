@@ -4,14 +4,14 @@
 
 
 ### Basic functionality :
-**log in**
-**logout**
-**check if username is valid**
-**check login status**
-**store User IP**
-**add user**
-**reset password**
-**and many more**
+**log in**<br> 
+**logout**<br> 
+**check if username is valid**<br> 
+**check login status**<br> 
+**store User IP**<br> 
+**add user**<br> 
+**reset password**<br> 
+**and many more**<br> 
 
 ## Required libs
 **pip install mysql-connector-python** : mysql connector module python  
