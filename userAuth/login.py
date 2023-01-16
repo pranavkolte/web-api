@@ -2,11 +2,6 @@ import hashlib
 import config
 
 
-def getSHA(password):
-    SHA_password = hashlib.sha256(password.encode('utf-8')).hexdigest().upper()
-    return SHA_password
-
-
 def login(username, password):
     try:
 
@@ -16,7 +11,8 @@ def login(username, password):
             return False
 
         mycursor = database.cursor()
-        mycursor.execute(config.QUERRY_LOGIN, (username, getSHA(password)))
+        mycursor.execute(config.QUERRY_LOGIN,
+                         (username, config.getSHA(password)))
         result = mycursor.fetchall()
         status = "ON"
         userID = result[0][0]
